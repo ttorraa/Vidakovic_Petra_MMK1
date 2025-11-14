@@ -25,11 +25,7 @@
             margin-top: 40px;
         }
 
-        h2 {
-            font-size: 40px;
-            color: rgb(139, 100, 14);
-            margin-top: 10px;
-        }
+     
 
         .bio-box {
             background-color: rgba(255, 244, 226, 0.7);
@@ -81,6 +77,7 @@
     display: block;
     margin: 20px auto;
     max-width: 100%;
+    border-radius: 15px;
         }
 
         .horizontal-images {
@@ -96,13 +93,52 @@
     box-shadow: 0 0 10px rgba(70, 45, 10, 0.3);
 }
 
+#drugacije{
+    color: rgb(120, 19, 32);
+    font-size: 20px;
+    background-color: rgba(255, 235, 205, 0.6);
+    padding: 10px;
+    border-radius: 10px;
+}
 
+.joza-tablica {
+    width: 70%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    background-color: #fff7ec;   /* vrlo lagana pastelna pozadina */
+    border: 2px solid #d8b28f;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.joza-tablica th {
+    background-color: #e7c39c;
+    color: #5a341e;
+    padding: 12px;
+    font-size: 18px;
+}
+
+.joza-tablica td {
+    padding: 10px;
+    border: 1px solid #d8b28f;
+    color: #5a341e;
+    font-size: 16px;
+}
+
+.joza-tablica tbody tr:nth-child(odd) {
+    background-color: #fdf0de;
+}
+
+.joza-tablica tbody tr:hover {
+    background-color: #ffe4c4;
+}
     </style>
 </head>
 <body>
 
-    <h1>Mačak Joza</h1>
-    <h2>O njegovom životu</h2>
+    <h1>O Jozi</h1>
+  
 
     <div class="bio-box">
         <p>Mama i ja smo se vraćale kući jedan dan kad smo na cesti primijetili malo žutog mače. 
@@ -124,21 +160,52 @@
       Vaš preglednik ne podržava video tag.
     </video>
 
+    <div class="horizontal-images">
+    <img src="./slike/joza27.jpg" alt="mali joza">
+    <img src="./slike/joza28.jpg" alt="mali joza">
+    
+    </div>
+
         <p>S nama je sad već 4 ipol godine. Prošli smo puno toga zajedno. Planinarili smo skupa, šetali Ljubljanom kad su
             nas ljudi smiješno gledali dok je Joza ležao meni na ramenima. Zaključili smo da voli putovati s nama, iako mu 
             je najdraže kad se vratimo kući. Iako voli avanture, Joza najviše cijeni tople dekice i popodnevna spavanja.
             Navikao se na našu rutinu doma. Voli spavati kao čovjek- glava na jastuku i ušuškan u deku.
         </p>
-    
+
+   
+
        <div class="horizontal-images">
     <img src="./slike/joza24.jpg" alt="Joza planinari">
     <img src="./slike/joza25.jpg" alt="Joza spava">
-</div>
+    <img src="./slike/joza26.jpg" alt="Joza na putu">
 
-        <p>
-            Lijepo mu je i može se samo reći da mu je onaj dan kad smo ga pronašli <em> upala sjekira u med</em>.
+</div>
+ <img src="./slike/joza33.jpg">
+
+        <p id="drugacije">
+            Lijepo mu je i može se samo reći da mu je, onaj dan kad smo ga pronašli, <em> 'Upala sjekira u med'</em>.
         </p>
     </div>
+
+     <table class="joza-tablica">
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Vrsta</th>
+            <th>Boja</th>
+            <th>Godine</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>Joza</td>
+            <td>Obična kućna</td>
+            <td>Narančasta</td>
+            <td>4 i pol</td>
+        </tr>
+    </tbody>
+</table>
 
     
 
