@@ -138,6 +138,52 @@
 .joza-tablica tbody tr:hover {
     background-color: #ffe4c4;
 }
+
+
+
+
+.button-interactive {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+.button-interactive:hover {
+    background-color: rgb(180, 110, 50);
+    transform: scale(1.05);
+}
+
+
+.button-interactive:active {
+    transform: scale(0.95);
+}
+
+.button-interactive:focus {
+    outline: 3px solid #f1c40f;
+    transform: rotate(-2deg);
+}
+
+
+.img-interactive {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.img-interactive:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.743);
+}
+
+video.video-interactive {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+video.video-interactive:hover {
+    transform: scale(1.2);
+    box-shadow: 0 40px 50px rgba(0, 0, 0, 0.514);
+}
+
     </style>
 </head>
 <body>
@@ -160,13 +206,14 @@
             nadjenuo ime - Joza - i tu sam već znala da će ostati s nama. 
         </p>
 
-            <video width="600" controls style="display:block; margin: 20px auto;">
-      <source src="./video/joza_video1.mp4" type="video/mp4">
-    </video>
+    
+    <video width="600" controls class="video-interactive">
+    <source src="./video/joza_video1.mp4" type="video/mp4">
+</video>
 
     <div class="horizontal-images">
-    <img src="./slike/joza27.jpg" alt="mali joza">
-    <img src="./slike/joza28.jpg" alt="mali joza">
+    <img src="./slike/joza27.jpg" alt="mali joza" class="img-interactive">
+    <img src="./slike/joza28.jpg" alt="mali joza" class="img-interactive">
     
     </div>
 
@@ -179,12 +226,12 @@
    
 
        <div class="horizontal-images">
-    <img src="./slike/joza24.jpg" alt="Joza planinari">
-    <img src="./slike/joza25.jpg" alt="Joza spava">
-    <img src="./slike/joza26.jpg" alt="Joza na putu">
+    <img src="./slike/joza24.jpg" alt="Joza planinari" class="img-interactive">
+    <img src="./slike/joza25.jpg" alt="Joza spava" class="img-interactive">
+    <img src="./slike/joza26.jpg" alt="Joza na putu" class="img-interactive">
 
 </div>
- <img src="./slike/joza33.jpg">
+ <img src="./slike/joza33.jpg" class="img-interactive">
 
         <p id="drugacije">
             Lijepo mu je i može se samo reći da mu je, onaj dan kad smo ga pronašli, <em> 'Upala sjekira u med'</em>.
@@ -211,10 +258,10 @@
     </tbody>
 </table>
 
-    
+>
 
-    <a href="index1.html" class="back">⬅ Povratak na izbor sadržaja</a>
-    <a href="index.html" class="back">⬅ Povratak na početnu stranicu</a>
+    <a href="index1.html" class="back button-interactive">⬅ Povratak na izbor sadržaja</a>
+<a href="index.html" class="back button-interactive">⬅ Povratak na početnu stranicu</a>
 
 </body>
 </html>

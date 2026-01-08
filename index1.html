@@ -107,6 +107,63 @@
   transform: translate(0%, 220%); 
 }
 
+#popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#popup-content {
+    background: rgb(189, 138, 80);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+#popup-content button {
+    margin-top: 10px;
+}
+
+.content-box a.interactive {
+    transition: all 0.4s ease; 
+    cursor: pointer;
+}
+
+.content-box a.interactive:hover {
+    background-color: rgb(234, 173, 119); 
+    transform: scale(1.3); 
+}
+
+.content-box a.interactive:active {
+    transform: scale(1); 
+}
+
+.content-box a.interactive:focus {
+    outline: 3px solid #f1c40f; 
+    transform: rotate(-1deg); 
+}
+
+.back.interactive {
+    transition: all 0.3s ease; 
+    cursor: pointer;
+}
+
+.back.interactive:hover {
+    background-color: rgb(230, 184, 145);
+    transform: scale(1);
+}
+
+.back.interactive:active {
+    transform: scale(0.95); 
+}
+
+.back.interactive:focus {
+    outline: 3px solid #f1c40f; 
+    transform: rotate(-1deg); 
+}
     </style>
 </head>
 <body>
@@ -116,9 +173,80 @@
         <h2>Uspješna prijava!</h2>
         <h3>Dalje možete birati sadržaj:</h3>
 
-        <a href="index2.html">📷 Galerija</a>
-        <a href="o_jozi.html">🐾 O Jozi</a>
-        
+        <a href="index2.html" class="interactive">📷 Galerija</a>
+        <a href="o_jozi.html" class="interactive">🐾 O Jozi</a>
+
+
+<div style="text-align:center;">
+      <script>
+function openPopup() {
+    document.getElementById('popup').style.display = 'flex';
+}
+
+function closePopup() {
+    const iframe = document.querySelector('#popup iframe');
+    iframe.src = iframe.src; // reset → stop video
+    document.getElementById('popup').style.display = 'none';
+}
+</script>
+
+<video
+    src="./video/joza_video2.mp4"
+    autoplay
+    loop
+    muted
+    playsinline
+    style="width:190px; cursor:pointer;"
+    onclick="openPopup()">
+</video>
+
+   <p style="margin-top:8px;">
+       ▶ Klikni na video kako bi se otvorio link.
+    </p>
+
+<div id="popup" style="
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.8);
+    justify-content:center;
+    align-items:center;"
+    onclick="closePopup()">
+
+    <iframe
+        width="560"
+        height="315"
+        src="https://youtu.be/vSGEb9S4dAM?si=9mkatvYhWcUi1-J1"
+        frameborder="0"
+        allowfullscreen>
+    </iframe>
+
+</div>
+
+<div id="popup-overlay" onclick="closePopup()">
+    <div id="popup-content" onclick="event.stopPropagation();">
+        <p>- Video će se otvoriti u novom tabu -</p>
+        <button onclick="openYouTube()">Otvori YouTube</button>
+        <button onclick="closePopup()">Zatvori</button>
+    </div>
+</div>
+
+<script>
+function openPopup() {
+    document.getElementById('popup-overlay').style.display = 'flex';
+}
+
+function closePopup() {
+    document.getElementById('popup-overlay').style.display = 'none';
+}
+
+function openYouTube() {
+    window.open('https://youtu.be/vSGEb9S4dAM?si=9mkatvYhWcUi1-J1', '_blank');
+}
+</script>
+
+</div>
+
     <table>
   <!-- red 1 -->
   <tr>
@@ -195,6 +323,6 @@
         </div>
 
         
-<a href="index.html" class="back">⬅ Povratak na početnu stranicu</a>
+<a href="index.html" class="back interactive">⬅ Povratak na početnu stranicu</a>
 </body>
 </html>
