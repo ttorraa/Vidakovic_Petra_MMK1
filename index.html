@@ -21,25 +21,28 @@ body {
 }
 
 h1 { font-family: "Cactus Classical Serif";
-        font-size: 60px; 
+        font-size: clamp(2.2rem, 6vw, 3.5rem); 
         color: rgb(135, 76, 28); text-align: center; 
         padding-top: 10px;
 }
         
 h2 { 
         font-family: 'Cactus Classical Serif';
-        font-size: 40px; color: rgb(139, 100, 14); 
+        font-size: clamp(1.6rem, 4vw, 2.5rem); color: rgb(139, 100, 14); 
         text-align: center; 
         font-weight: 0; 
         padding-top: 0px;
 }
 
-p { 
-        font-family: 'Cactus Classical Serif';
-        font-size: 18px;
-        text-align: center;
-        color: rgb(83, 52, 5);
-        white-space: pre;
+p {
+  font-family: 'Cactus Classical Serif';
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+  text-align: center;
+  color: rgb(83, 52, 5);
+  line-height: 1.6;
+  margin: 1rem auto;
+  max-width: 65ch;
+  padding: 0 1rem;
 }
 
 p1 {
@@ -117,10 +120,46 @@ ul li:nth-child(3) {
     margin-top: 60px;
 }
 
+.horizontal ul li {
+  opacity: 0;
+  animation: listUlaz 0.6s ease forwards;
+}
+
+.horizontal ul li:nth-child(1) { animation-delay: 0.7s; }
+.horizontal ul li:nth-child(2) { animation-delay: 1.4s; }
+.horizontal ul li:nth-child(3) { animation-delay: 2.1s; }
+
+@keyframes listUlaz {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
     .horizontal img {
     width: 260px;
     border-radius: 30px;
     margin-right: 270px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+     animation: njihanje 3s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+
+@keyframes njihanje {
+  0% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  100% {
+    transform: rotate(-2deg);
+  }
 }
 
     .login-form {
@@ -172,6 +211,14 @@ ul li:nth-child(3) {
         background-color: rgb(180, 110, 50);
 }
 
+.login-form button {
+  transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+.login-form button:hover {
+  transform: scale(1.05);
+}
+
     input[pattern="macak"] { color: rgb(55, 38, 7); }
     input[pattern="joza"] { color: rgb(99, 62, 20); }
         
@@ -197,16 +244,65 @@ ul li:nth-child(3) {
    #dodatak2 {
     color: rgb(255, 232, 209);
     font-size: 20px;
-    font-weight: inherit;
-    background-color: rgba(145, 112, 61, 0.678);
-    padding: 5px;
-    border-radius: 20px;
-    margin-left: 500px;
-    margin-right: 490px;
+    font-weight: bold;
+    background-color: rgba(135, 76, 28, 0.548);
+    padding: 3px;
+    margin-left: 300px;
+    margin-right: 300px;
+    border-radius: 10px;
    }
 
-  
-  
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  animation: fadeIn 1.2s ease-in;
+}
+
+h1 {
+  animation: naslovUlaz 1.5s ease-in;
+}
+
+@keyframes naslovPad {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  animation: naslovPad 1.5s ease-in;
+}
+
+
+@keyframes blagiPuls {
+  0% {
+    background-color: rgba(205, 166, 81, 0.35);
+  }
+  50% {
+    background-color: rgba(205, 166, 81, 0.55);
+  }
+  100% {
+    background-color: rgba(205, 166, 81, 0.35);
+  }
+}
+
+.uvod {
+  animation: blagiPuls 6s ease-in-out infinite;
+}
+
 </style>
 
     <h1>Mačak Joza</h1>
@@ -230,12 +326,13 @@ ul li:nth-child(3) {
      <img src="./slike/joza1.jpg" alt="Mačak Joza">
 </div>
 
+
 <form action="index1.html" method="get" class="login-form">
     <fieldset>
         <legend>Prijava korisnika</legend>
 
         <label for="ime">Korisničko ime:</label>
-       <input type="text" id="ime" name="ime" placeholder="Unesi ime"
+        <input type="text" id="ime" name="ime" placeholder="Unesi ime"
                pattern="macak"
                title="Korisničko ime mora biti: macak"
                required><br><br>
@@ -245,6 +342,7 @@ ul li:nth-child(3) {
                pattern="joza"
                title="Lozinka mora biti: joza"
                required><br><br>  
+
         <button type="submit">Prijava</button>
     </fieldset>
 </form>
